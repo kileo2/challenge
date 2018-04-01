@@ -2,9 +2,9 @@
 /*global $, jQuery*/
 'use strict';
 function loadData(search) {
-//   var $animElem = $('#anime-results');
-//    
-//    $animElem.text("")
+   var $animElem = $('#anime-results');
+    
+    $animElem.text("")
     // get JSON data from api and append results to the results container
     $.getJSON('https://api.jikan.me/search/anime/'+search+'/', function (data) {
         
@@ -15,7 +15,7 @@ function loadData(search) {
         for (var i = 0; i < animeResults.length;i++){
             let animeRes = animeResults[i];
             //append data to HTML
-            document.getElementById("anime-results").appendChild('<li class="animeRes">'+'<h2>'+animeRes.title+'</h2>'+
+            $animElem.append('<li class="animeRes">'+'<h2>'+animeRes.title+'</h2>'+
                            '<p>'+animeRes.description+'</p>'+'</li>');
         }
         }
