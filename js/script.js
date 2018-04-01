@@ -1,10 +1,10 @@
 /*jslint browser: true*/
 /*global $, jQuery*/
-function load() {
+function loadData() {
     'use strict';
     var $body = $('body');
     var $animehea = $('#anime-header');
-    var $animeres = $('#anime-results');
+    var $anires = $('#anime-results');
     
     var searchval = $('#anime').val();
     
@@ -21,8 +21,8 @@ function load() {
         //appending results from response.    
         for (var i = 0; i < animeresults.length;i++){
             var animeres = animeresults[i];
-            $animeres.append('<li class="res">'+'<h2>'+animeres.title+'</h2>'+
-                           '<p>'+animeres.description+'</p>');
+            $anires.append('<li class="res">'+'<h2>'+animeres.title+'</h2>'+
+                           '<p>'+animeres.description+'</p>'+'</li>');
         };
         }
        
@@ -31,4 +31,4 @@ function load() {
 }
 
 //
-$('#form-con').submit(load);
+$('#form-container').submit(loadData);
