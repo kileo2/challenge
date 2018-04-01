@@ -1,34 +1,31 @@
-/*jslint browser: true*/
+/*eslint browser: true*/
 /*global $, jQuery*/
-function loadData() {
-    'use strict';
-    var $body = $('body');
-    var $animehea = $('#anime-header');
-    var $anires = $('#anime-results');
-    
-    var searchval = $('#anime').val();
-    
- //url for api   
-    var animemurl = 'https://api.jikan.me/search/anime/'+searchval+'/';
- 
+'use strict';
+function loadData(search) {
+//   var $animElem = $('#anime-results');
+//    
+//    $animElem.text("")
     // get JSON data from api and append results to the results container
-    $.getJSON(animemurl, function (data) {
-        console.log(data);
+    $.getJSON('https://api.jikan.me/search/anime/'+search+'/', function (data) {
         
         //getting response for GET and saving it as an object
-        var animeresults=data.responseJSON;
-        if(animeresults != null){
+        var animeResults=data.responseJSON;
+        if(animeResults != null){
         //appending results from response.    
-        for (var i = 0; i < animeresults.length;i++){
-            var animeres = animeresults[i];
-            $anires.append('<li class="res">'+'<h2>'+animeres.title+'</h2>'+
-                           '<p>'+animeres.description+'</p>'+'</li>');
-        };
+        for (var i = 0; i < animeResults.length;i++){
+            let animeRes = animeResults[i];
+            //append data to HTML
+            document.getElementById("anime-results").appendChild('<li class="animeRes">'+'<h2>'+animeRes.title+'</h2>'+
+                           '<p>'+animeRes.description+'</p>'+'</li>');
+        }
         }
        
         
     });
 }
 
-//
-$('#form-container').submit(loadData);
+//passing in the search value
+$("#submit-btn").click(function(){
+    var searchVal = $("#anime").val();
+    loadData(searchVal);
+})
