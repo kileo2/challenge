@@ -1,0 +1,14 @@
+.search-con{
+    padding:10px;
+    margin-right:200px
+}
+
+.result-list{
+    margin:0;
+    padding:5;
+}
+
+.animeres{
+    list-style-type: none;
+    padding:10px;
+}
