@@ -3,8 +3,8 @@
 function load() {
     'use strict';
     var $body = $('body');
-    var $filhea = $('#anime-header');
-    var $filmres = $('#anime-results');
+    var $animehea = $('#anime-header');
+    var $animeres = $('#anime-results');
     
     var searchval = $('#anime').val();
     
@@ -21,7 +21,7 @@ function load() {
         //appending results from response.    
         for (var i = 0; i < animeresults.length;i++){
             var animeres = animeresults[i];
-            $filmres.append('<li class="res">'+'<h2>'+animeres.title+'</h2>'+
+            $animeres.append('<li class="res">'+'<h2>'+animeres.title+'</h2>'+
                            '<p>'+animeres.description+'</p>');
         };
         }
